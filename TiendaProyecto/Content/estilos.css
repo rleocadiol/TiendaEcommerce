@@ -1,0 +1,18 @@
+﻿body {
+    background-color:skyblue;
+}
+
+.titulo-nosotros {
+    text-align: center;
+    padding: 35px 50px 80px 50px;
+}
+
+.after-horizontal::after {
+    content: '';
+    display: block;
+    margin: auto;
+    margin-top: 35px;
+    width: 500px;
+    height: 3px;
+    background: #292E83;
+}

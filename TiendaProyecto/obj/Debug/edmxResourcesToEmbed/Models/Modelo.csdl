@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TiendaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="categoria">
+    <Key>
+      <PropertyRef Name="Id_categoria" />
+    </Key>
+    <Property Name="Id_categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="subcategoria" Relationship="Self.FK__subcatego__id_ca__114A936A" FromRole="categoria" ToRole="subcategoria" />
+  </EntityType>
+  <EntityType Name="cliente">
+    <Key>
+      <PropertyRef Name="Id_cliente" />
+    </Key>
+    <Property Name="Id_cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="calle_t" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="colonia_t" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="estado_t" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="num_tarj_cred_ppal" Type="String" MaxLength="16" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="empleado">
+    <Key>
+      <PropertyRef Name="Id_empleado" />
+    </Key>
+    <Property Name="Id_empleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="60" FixedLength="true" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+    <Property Name="rol" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Departamento" Type="String" MaxLength="45" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="paqueteria">
+    <Key>
+      <PropertyRef Name="Id_paqueteria" />
+    </Key>
+    <Property Name="Id_paqueteria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="rfc" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="tel" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="web" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="contacto" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="tel_contacto" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="producto">
+    <Key>
+      <PropertyRef Name="Id_producto" />
+    </Key>
+    <Property Name="Id_producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="precio" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ult_actualizacion" Type="DateTime" Precision="0" />
+    <Property Name="imagen" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="existencia" Type="Int32" />
+    <Property Name="stock" Type="Int32" />
+    <Property Name="id_subcategoria" Type="Int32" />
+    <NavigationProperty Name="subcategoria" Relationship="Self.FK__producto__id_sub__787EE5A0" FromRole="producto" ToRole="subcategoria" />
+  </EntityType>
+  <EntityType Name="subcategoria">
+    <Key>
+      <PropertyRef Name="Id_subcategoria" />
+    </Key>
+    <Property Name="Id_subcategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_categoria" Type="Int32" />
+    <NavigationProperty Name="categoria" Relationship="Self.FK__subcatego__id_ca__114A936A" FromRole="subcategoria" ToRole="categoria" />
+    <NavigationProperty Name="producto" Relationship="Self.FK__producto__id_sub__787EE5A0" FromRole="subcategoria" ToRole="producto" />
+  </EntityType>
+  <Association Name="FK__subcatego__id_ca__114A936A">
+    <End Role="categoria" Type="Self.categoria" Multiplicity="0..1" />
+    <End Role="subcategoria" Type="Self.subcategoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoria">
+        <PropertyRef Name="Id_categoria" />
+      </Principal>
+      <Dependent Role="subcategoria">
+        <PropertyRef Name="id_categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__producto__id_sub__787EE5A0">
+    <End Role="subcategoria" Type="Self.subcategoria" Multiplicity="0..1" />
+    <End Role="producto" Type="Self.producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subcategoria">
+        <PropertyRef Name="Id_subcategoria" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="id_subcategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="contextTienda" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="categoria" EntityType="Self.categoria" />
+    <EntitySet Name="cliente" EntityType="Self.cliente" />
+    <EntitySet Name="empleado" EntityType="Self.empleado" />
+    <EntitySet Name="paqueteria" EntityType="Self.paqueteria" />
+    <EntitySet Name="producto" EntityType="Self.producto" />
+    <EntitySet Name="subcategoria" EntityType="Self.subcategoria" />
+    <AssociationSet Name="FK__subcatego__id_ca__114A936A" Association="Self.FK__subcatego__id_ca__114A936A">
+      <End Role="categoria" EntitySet="categoria" />
+      <End Role="subcategoria" EntitySet="subcategoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK__producto__id_sub__787EE5A0" Association="Self.FK__producto__id_sub__787EE5A0">
+      <End Role="subcategoria" EntitySet="subcategoria" />
+      <End Role="producto" EntitySet="producto" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
