@@ -14,6 +14,12 @@ namespace TiendaProyecto.Models
     
     public partial class paqueteria
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public paqueteria()
+        {
+            this.orden = new HashSet<orden>();
+        }
+    
         public int Id_paqueteria { get; set; }
         public string nombre { get; set; }
         public string rfc { get; set; }
@@ -22,5 +28,8 @@ namespace TiendaProyecto.Models
         public string direccion { get; set; }
         public string contacto { get; set; }
         public string tel_contacto { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<orden> orden { get; set; }
     }
 }

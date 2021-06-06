@@ -1,0 +1,19 @@
+﻿@using TiendaProyecto.Models
+@{
+    ViewBag.Title = "prodCategoria";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Catego</h2>
+
+<div class="container">
+    <div class="col-xs-12 col-md-9">
+        <div class="row">
+            @foreach(producto item in ViewBag.productos)
+            {
+                //Aquí van los productos
+            };
+        </div>
+    </div>
+</div>
+

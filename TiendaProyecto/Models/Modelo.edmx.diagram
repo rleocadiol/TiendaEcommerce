@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fce7bdee0e28456a9f8fb7443af75bb6" Name="Diagram1">
+      <Diagram DiagramId="fce7bdee0e28456a9f8fb7443af75bb6" Name="Diagram1" ZoomLevel="55">
         <EntityTypeShape EntityType="TiendaModel.categoria" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="TiendaModel.cliente" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TiendaModel.empleado" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
@@ -13,6 +13,14 @@
         <EntityTypeShape EntityType="TiendaModel.subcategoria" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
         <AssociationConnector Association="TiendaModel.FK__subcatego__id_ca__114A936A" ManuallyRouted="false" />
         <AssociationConnector Association="TiendaModel.FK__producto__id_sub__787EE5A0" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TiendaModel.dirEntrega" Width="1.5" PointX="3" PointY="9" />
+        <EntityTypeShape EntityType="TiendaModel.orden" Width="1.5" PointX="7" PointY="5.5" />
+        <EntityTypeShape EntityType="TiendaModel.orden_detalle" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="TiendaModel.orden_producto" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="TiendaModel.producto_has_categoria" Width="1.5" PointX="9.375" PointY="3.75" />
+        <AssociationConnector Association="TiendaModel.FK__dirEntreg__id_cl__0B91BA14" />
+        <AssociationConnector Association="TiendaModel.FK__orden__id_client__0C85DE4D" />
+        <AssociationConnector Association="TiendaModel.FK__orden__id_paquet__08B54D69" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
@@ -172,16 +173,30 @@ namespace TiendaProyecto.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+                        Session["name"] = "";
+                        Session["correo"] = user.Email;
                     }
-
-                    
+                    return RedirectToAction("Create", "Clientes");
                 }
                 AddErrors(result);
             }
 
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
             return View(model);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Delete (string id)
+        {
+            if (ModelState.IsValid)
+            {
+                if (id==null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                var user = await UserManager.FindByIdAsync(id);
+            }
+            return RedirectToAction("Register");
         }
 
         //
