@@ -1,4 +1,4 @@
-﻿}using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,15 +14,15 @@ namespace TiendaProyecto.Controllers
         {
             return View();
         }
-        public ActionResult CrearOrden()
-        {
-            if (!User.Identity.IsAuthenticated)
-            {
-                Session["CrearOrden"] = "pend";
-                 return RedirectToAction("Login", "Acount");
-            }
-                 var orden = new orden();
-                 var bd = new contextTienda();
-        }
+      // public ActionResult CrearOrden()
+       // {
+         //   if (!User.Identity.IsAuthenticated)
+           // {
+             //   Session["CrearOrden"] = "pend";
+               //  return RedirectToAction("Login", "Acount");
+            //}
+               //  var orden = new orden();
+                 //var bd = new contextTienda();
+        //}
     }
 }

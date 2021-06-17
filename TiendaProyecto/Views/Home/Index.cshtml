@@ -2,11 +2,217 @@
     ViewBag.Title = "Home Page";
 }
 
-<h3 class="text-center">Seleccione alguna de las categorías</h3>
-<div class="row justify-content-md-between align-items-center">
-    <div class="col-md-3">
-        <div class="text-center categoria">
-            <a href="@Url.Action("prodCategoria", "catalogo", new { id})">content</a>
-        </div>
+
+
+<html>
+<head>
+
+
+
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/style_slider.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{!! asset('css/style_slider.css') !!}">
+    <link rel="stylesheet" href="{!! asset('css/style.css') !!}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+        <script src="https://kit.fontawesome.com/1669efdec3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div>
+        <font color="blue"> <h1 style="font-size: 60px; background-color: white; text-align: left; font-family: cursive; "> </h1></font>
     </div>
-</div>
+
+
+
+
+    <div align="right">
+
+
+
+        <table border="1">
+
+
+
+            <tr>
+
+
+
+                <td style="background-color: white; width: 50px; padding: 5px; text-align: center;">Tienda </td>
+
+
+
+                <td style="background-color: white; width: 50px; padding: 5px; text-align: center;">Carrito</td>
+
+
+
+                <td style="background-color: white; width: 50px; padding: 5px; text-align: center; ">Finalizar compra</td>
+
+
+
+                <td style="background-color: white; width: 50px; padding: 5px; text-align: center;">$</td>
+
+
+
+            </tr>
+
+
+
+
+        </table>
+
+
+
+    </div>
+
+
+
+    <div class="contenedor-principal">
+        <section class="contenedor-header">
+
+
+
+            <div class="contenedor-s">
+                <div class="contenedor-slider">
+                    <div>
+                        <div>
+                            <div class="slider">
+                                <div class="img-slider" id="ultimo">
+                                    <img src="images/c1.jpg">
+                                </div>
+                                <div class="img-slider">
+                                    <img src="images/c2.jpg">
+                                </div>
+                                <div class="img-slider">
+                                    <img src="images/s4.jpg">
+                                </div>
+                                <div class="img-slider">
+                                    <img src="images/c3.jpg">
+                                </div>
+                                <div class="img-slider">
+                                    <img src="images/s3.jpg">
+                                </div>
+                                <div class="img-slider">
+                                    <img src="images/c4.jpg">
+                                </div>
+                                <div class="img-slider" id="primero">
+                                    <img src="images/v1.jpg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="contenedor-op">
+                    <button class="btn-s" id="previo"><i class="fas fa-angle-left"></i></button>
+                    <button class="btn-s" id="siguiente"><i class="fas fa-angle-right"></i></button>
+                    <div class="slider-ul">
+                        <li class="option" option-index="0"></li>
+                        <li class="option" option-index="1"></li>
+                        <li class="option" option-index="2"></li>
+                        <li class="option" option-index="3"></li>
+                        <li class="option" option-index="4"></li>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </section>
+    </div>
+
+
+
+
+
+    <div class="wrap" align="right">
+        <h1>Comprar por cate jfiuñjñogoria</h1>
+
+
+
+        <section class="products-list">
+            <div class="product-item" category="cuchillos">
+                <img src="images/c1.jpg" alt="">
+                <a href="#">Cuchillo</a>
+            </div>
+
+
+
+            <div class="product-item" category="sartenes">
+                <img src="images/s1.jpg" alt="">
+                <a href="#">Sarten</a>
+            </div>
+
+
+
+            <div class="product-item" category="licua">
+                <img src="images/L1.jpg" alt="">
+                <a href="#">Lucuadora</a>
+            </div>
+            <div class="product-item" category="vaso">
+                <img src="images/v1.jpg" alt="">
+                <a href="#">Vaso </a>
+            </div>
+        </section>
+    </div>
+
+
+
+
+    <div class="wrap" align="right">
+        <h1>Ofertas Express</h1>
+
+
+
+        <section class="products-list">
+            <div class="product-item" category="cuchillos">
+                <img src="images/c1.jpg" alt="">
+                <a href="#">Cuchillo</a>
+            </div>
+            <div class="product-item" category="cuchillos">
+                <img src="images/c2.jpg" alt="">
+                <a href="#">Cuchillo</a>
+            </div>
+            <div class="product-item" category="cuchillos">
+                <img src="images/c3.jpg" alt="">
+                <a href="#">Cuchillo</a>
+            </div>
+            <div class="product-item" category="cuchillos">
+                <img src="images/c4.jpg" alt="">
+                <a href="#">Cuchillo</a>
+            </div>
+            <div class="product-item" category="sartenes">
+                <img src="images/s1.jpg" alt="">
+                <a href="#">Sarten</a>
+            </div>
+            <div class="product-item" category="sartenes">
+                <img src="images/s2.jpg" alt="">
+                <a href="#">Sarten</a>
+            </div>
+            <div class="product-item" category="sartenes">
+                <img src="images/s3.jpg" alt="">
+                <a href="#">Sarten</a>
+            </div>
+            <div class="product-item" category="sartenes">
+                <img src="images/s4.jpg" alt="">
+                <a href="#">Sarten</a>
+            </div>
+            <div class="product-item" category="licua">
+                <img src="images/L1.jpg" alt="">
+                <a href="#">Licuadora</a>
+            </div>
+            <div class="product-item" category="vaso">
+                <img src="images/v1.jpg" alt="">
+                <a href="#">Vaso </a>
+            </div>
+        </section>
+    </div>
+
+
+
+</body>
+</html>

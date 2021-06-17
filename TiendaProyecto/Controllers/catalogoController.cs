@@ -16,7 +16,7 @@ namespace TiendaProyecto.Controllers
             return View();
         }
 
-        [HttpPost]
+       [HttpPost]
         public ActionResult BuscaProd(string nomBuscar)
         {
             ViewBag.SearchKey = nomBuscar;
@@ -28,6 +28,7 @@ namespace TiendaProyecto.Controllers
                 var listProd = query.ToList();
                 ViewBag.Listado = listProd;
             }
+            return View();
         }
         public ActionResult prodCategoria(int idCat)
         {
