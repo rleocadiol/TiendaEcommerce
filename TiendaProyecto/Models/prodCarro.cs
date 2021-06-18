@@ -7,7 +7,7 @@ namespace TiendaProyecto.Models
 {
     public class prodCarro
     {
-        private contextTienda db = new contextTienda();
+        private conteTienda db = new conteTienda();
         private List<producto> productos;
         public prodCarro()
         {

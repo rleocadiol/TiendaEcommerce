@@ -10,7 +10,7 @@ namespace TiendaProyecto.Controllers
     [Authorize]
     public class UsuarioController : Controller
     {
-        private contextTienda db = new contextTienda();
+        private conteTienda db = new conteTienda();
         // GET: Usuario
         public ActionResult Index(string email)
         {

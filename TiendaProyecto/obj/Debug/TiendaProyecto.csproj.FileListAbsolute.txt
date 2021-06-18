@@ -476,7 +476,6 @@ C:\Users\Raul\Documents\10\ECommerce\Proyecto GIT\TiendaEcommerce\TiendaProyecto
 C:\Users\Raul\Documents\10\ECommerce\Proyecto GIT\TiendaEcommerce\TiendaProyecto\obj\Debug\TiendaProyecto.csproj.CopyComplete
 C:\Users\Raul\Documents\10\ECommerce\Proyecto GIT\TiendaEcommerce\TiendaProyecto\obj\Debug\TiendaProyecto.dll
 C:\Users\Raul\Documents\10\ECommerce\Proyecto GIT\TiendaEcommerce\TiendaProyecto\obj\Debug\TiendaProyecto.pdb
-C:\Users\gabri\Source\Repos\rleocadiol\TiendaEcommerce\TiendaProyecto\obj\Debug\TiendaProyecto.csprojAssemblyReference.cache
 C:\Users\gabri\Source\Repos\rleocadiol\TiendaEcommerce\TiendaProyecto\obj\Debug\TiendaProyecto.csproj.CoreCompileInputs.cache
 C:\Users\gabri\Source\Repos\rleocadiol\TiendaEcommerce\TiendaProyecto\obj\Debug\TiendaProyecto.sourcelink.json
 C:\Users\gabri\Source\Repos\rleocadiol\TiendaEcommerce\TiendaProyecto\obj\Debug\TiendaProyecto.dll
@@ -715,3 +714,4 @@ C:\Users\gabri\Source\Repos\rleocadiol\TiendaEcommerce\TiendaProyecto\bin\es\Mic
 C:\Users\gabri\Source\Repos\rleocadiol\TiendaEcommerce\TiendaProyecto\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
 C:\Users\gabri\Source\Repos\rleocadiol\TiendaEcommerce\TiendaProyecto\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
 C:\Users\gabri\Source\Repos\rleocadiol\TiendaEcommerce\TiendaProyecto\obj\Debug\TiendaProyecto.csproj.CopyComplete
+C:\Users\gabri\source\repos\rleocadiol\TiendaEcommerce\TiendaProyecto\obj\Debug\TiendaProyecto.csprojAssemblyReference.cache

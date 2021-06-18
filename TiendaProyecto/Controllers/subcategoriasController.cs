@@ -12,7 +12,7 @@ namespace TiendaProyecto.Controllers
 {
     public class subcategoriasController : Controller
     {
-        private contextTienda db = new contextTienda();
+        private conteTienda db = new conteTienda();
 
         // GET: subcategorias
         public ActionResult Index()

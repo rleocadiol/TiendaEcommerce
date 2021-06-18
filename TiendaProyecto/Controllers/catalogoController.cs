@@ -9,7 +9,7 @@ namespace TiendaProyecto.Controllers
 {
     public class catalogoController : Controller
     {
-        private contextTienda db = new contextTienda();
+        private conteTienda db = new conteTienda();
         // GET: catalogo
         public ActionResult Index()
         {

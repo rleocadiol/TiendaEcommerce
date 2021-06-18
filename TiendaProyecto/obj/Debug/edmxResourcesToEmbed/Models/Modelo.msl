@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="TiendaModelStoreContainer" CdmEntityContainer="contextTienda">
+  <EntityContainerMapping StorageEntityContainer="Tienda2ModelStoreContainer" CdmEntityContainer="conteTienda">
     <EntitySetMapping Name="categoria">
-      <EntityTypeMapping TypeName="TiendaModel.categoria">
+      <EntityTypeMapping TypeName="Tienda2Model.categoria">
         <MappingFragment StoreEntitySet="categoria">
           <ScalarProperty Name="Id_categoria" ColumnName="Id_categoria" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -11,7 +11,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="cliente">
-      <EntityTypeMapping TypeName="TiendaModel.cliente">
+      <EntityTypeMapping TypeName="Tienda2Model.cliente">
         <MappingFragment StoreEntitySet="cliente">
           <ScalarProperty Name="Id_cliente" ColumnName="Id_cliente" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -23,8 +23,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="dirEntrega">
+      <EntityTypeMapping TypeName="Tienda2Model.dirEntrega">
+        <MappingFragment StoreEntitySet="dirEntrega">
+          <ScalarProperty Name="Id_dirEntrega" ColumnName="Id_dirEntrega" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="colonia" ColumnName="colonia" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="empleado">
-      <EntityTypeMapping TypeName="TiendaModel.empleado">
+      <EntityTypeMapping TypeName="Tienda2Model.empleado">
         <MappingFragment StoreEntitySet="empleado">
           <ScalarProperty Name="Id_empleado" ColumnName="Id_empleado" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -34,8 +46,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="orden">
+      <EntityTypeMapping TypeName="Tienda2Model.orden">
+        <MappingFragment StoreEntitySet="orden">
+          <ScalarProperty Name="Id_orden" ColumnName="Id_orden" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="num_confirmacion" ColumnName="num_confirmacion" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="id_dirEntrega" ColumnName="id_dirEntrega" />
+          <ScalarProperty Name="id_paqueteria" ColumnName="id_paqueteria" />
+          <ScalarProperty Name="num_guia" ColumnName="num_guia" />
+          <ScalarProperty Name="fecha_envio" ColumnName="fecha_envio" />
+          <ScalarProperty Name="fecha_entrega" ColumnName="fecha_entrega" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="paqueteria">
-      <EntityTypeMapping TypeName="TiendaModel.paqueteria">
+      <EntityTypeMapping TypeName="Tienda2Model.paqueteria">
         <MappingFragment StoreEntitySet="paqueteria">
           <ScalarProperty Name="Id_paqueteria" ColumnName="Id_paqueteria" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -49,7 +77,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="producto">
-      <EntityTypeMapping TypeName="TiendaModel.producto">
+      <EntityTypeMapping TypeName="Tienda2Model.producto">
         <MappingFragment StoreEntitySet="producto">
           <ScalarProperty Name="Id_producto" ColumnName="Id_producto" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -64,7 +92,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="subcategoria">
-      <EntityTypeMapping TypeName="TiendaModel.subcategoria">
+      <EntityTypeMapping TypeName="Tienda2Model.subcategoria">
         <MappingFragment StoreEntitySet="subcategoria">
           <ScalarProperty Name="Id_subcategoria" ColumnName="Id_subcategoria" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />

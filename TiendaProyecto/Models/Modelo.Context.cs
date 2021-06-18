@@ -13,10 +13,10 @@ namespace TiendaProyecto.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class contextTienda : DbContext
+    public partial class conteTienda : DbContext
     {
-        public contextTienda()
-            : base("name=contextTienda")
+        public conteTienda()
+            : base("name=conteTienda")
         {
         }
     
@@ -27,14 +27,11 @@ namespace TiendaProyecto.Models
     
         public virtual DbSet<categoria> categoria { get; set; }
         public virtual DbSet<cliente> cliente { get; set; }
+        public virtual DbSet<dirEntrega> dirEntrega { get; set; }
         public virtual DbSet<empleado> empleado { get; set; }
+        public virtual DbSet<orden> orden { get; set; }
         public virtual DbSet<paqueteria> paqueteria { get; set; }
         public virtual DbSet<producto> producto { get; set; }
         public virtual DbSet<subcategoria> subcategoria { get; set; }
-        public virtual DbSet<dirEntrega> dirEntrega { get; set; }
-        public virtual DbSet<orden> orden { get; set; }
-        public virtual DbSet<orden_detalle> orden_detalle { get; set; }
-        public virtual DbSet<orden_producto> orden_producto { get; set; }
-        public virtual DbSet<producto_has_categoria> producto_has_categoria { get; set; }
     }
 }

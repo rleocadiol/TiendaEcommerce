@@ -11,7 +11,6 @@ namespace TiendaProyecto.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class cliente
     {
@@ -23,19 +22,11 @@ namespace TiendaProyecto.Models
         }
     
         public int Id_cliente { get; set; }
-        [Display(Name = "Nombre completo")]
-        [Required(ErrorMessage ="Debe ser mayor o menor")]
         public string nombre { get; set; }
         public string email { get; set; }
-        [Display(Name = "Calle y número")]
         public string calle_t { get; set; }
-        [Display(Name = "Colonia")]
         public string colonia_t { get; set; }
-        [Display(Name = "Estado")]
         public string estado_t { get; set; }
-        [Display(Name = "Número de tarjeta")]
-        [Required(ErrorMessage = "Requerido")]
-        [Range(1000000000000000,9999999999999999,ErrorMessage ="Debe ser de 16 dígitos")]
         public string num_tarj_cred_ppal { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

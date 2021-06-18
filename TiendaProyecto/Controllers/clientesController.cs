@@ -14,7 +14,7 @@ namespace TiendaProyecto.Controllers
 {
     public class clientesController : Controller
     {
-        private contextTienda db = new contextTienda();
+        private conteTienda db = new conteTienda();
 
         // GET: clientes
         public ActionResult Index()

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="TiendaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="Tienda2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="categoria">
     <Key>
       <PropertyRef Name="Id_categoria" />
@@ -7,7 +7,7 @@
     <Property Name="Id_categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="subcategoria" Relationship="Self.FK__subcatego__id_ca__114A936A" FromRole="categoria" ToRole="subcategoria" />
+    <NavigationProperty Name="subcategoria" Relationship="Self.FK__subcatego__id_ca__25869641" FromRole="categoria" ToRole="subcategoria" />
   </EntityType>
   <EntityType Name="cliente">
     <Key>
@@ -20,6 +20,20 @@
     <Property Name="colonia_t" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="estado_t" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="num_tarj_cred_ppal" Type="String" MaxLength="16" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="dirEntrega" Relationship="Self.FK__dirEntreg__id_cl__2A4B4B5E" FromRole="cliente" ToRole="dirEntrega" />
+    <NavigationProperty Name="orden" Relationship="Self.FK__orden__id_client__34C8D9D1" FromRole="cliente" ToRole="orden" />
+  </EntityType>
+  <EntityType Name="dirEntrega">
+    <Key>
+      <PropertyRef Name="Id_dirEntrega" />
+    </Key>
+    <Property Name="Id_dirEntrega" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="calle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="colonia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_cliente" Type="Int32" />
+    <NavigationProperty Name="cliente" Relationship="Self.FK__dirEntreg__id_cl__2A4B4B5E" FromRole="dirEntrega" ToRole="cliente" />
   </EntityType>
   <EntityType Name="empleado">
     <Key>
@@ -30,6 +44,23 @@
     <Property Name="email" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
     <Property Name="rol" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
     <Property Name="Departamento" Type="String" MaxLength="45" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="orden">
+    <Key>
+      <PropertyRef Name="Id_orden" />
+    </Key>
+    <Property Name="Id_orden" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="3" />
+    <Property Name="num_confirmacion" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="total" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="id_cliente" Type="Int32" />
+    <Property Name="id_dirEntrega" Type="Int32" />
+    <Property Name="id_paqueteria" Type="Int32" />
+    <Property Name="num_guia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fecha_envio" Type="DateTime" Precision="0" />
+    <Property Name="fecha_entrega" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="cliente" Relationship="Self.FK__orden__id_client__34C8D9D1" FromRole="orden" ToRole="cliente" />
+    <NavigationProperty Name="paqueteria" Relationship="Self.FK__orden__id_paquet__33D4B598" FromRole="orden" ToRole="paqueteria" />
   </EntityType>
   <EntityType Name="paqueteria">
     <Key>
@@ -43,6 +74,7 @@
     <Property Name="direccion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="contacto" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="tel_contacto" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="orden" Relationship="Self.FK__orden__id_paquet__33D4B598" FromRole="paqueteria" ToRole="orden" />
   </EntityType>
   <EntityType Name="producto">
     <Key>
@@ -57,7 +89,7 @@
     <Property Name="existencia" Type="Int32" />
     <Property Name="stock" Type="Int32" />
     <Property Name="id_subcategoria" Type="Int32" />
-    <NavigationProperty Name="subcategoria" Relationship="Self.FK__producto__id_sub__787EE5A0" FromRole="producto" ToRole="subcategoria" />
+    <NavigationProperty Name="subcategoria" Relationship="Self.FK__producto__id_sub__30F848ED" FromRole="producto" ToRole="subcategoria" />
   </EntityType>
   <EntityType Name="subcategoria">
     <Key>
@@ -67,10 +99,10 @@
     <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="id_categoria" Type="Int32" />
-    <NavigationProperty Name="categoria" Relationship="Self.FK__subcatego__id_ca__114A936A" FromRole="subcategoria" ToRole="categoria" />
-    <NavigationProperty Name="producto" Relationship="Self.FK__producto__id_sub__787EE5A0" FromRole="subcategoria" ToRole="producto" />
+    <NavigationProperty Name="categoria" Relationship="Self.FK__subcatego__id_ca__25869641" FromRole="subcategoria" ToRole="categoria" />
+    <NavigationProperty Name="producto" Relationship="Self.FK__producto__id_sub__30F848ED" FromRole="subcategoria" ToRole="producto" />
   </EntityType>
-  <Association Name="FK__subcatego__id_ca__114A936A">
+  <Association Name="FK__subcatego__id_ca__25869641">
     <End Role="categoria" Type="Self.categoria" Multiplicity="0..1" />
     <End Role="subcategoria" Type="Self.subcategoria" Multiplicity="*" />
     <ReferentialConstraint>
@@ -82,7 +114,43 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__producto__id_sub__787EE5A0">
+  <Association Name="FK__dirEntreg__id_cl__2A4B4B5E">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="dirEntrega" Type="Self.dirEntrega" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="Id_cliente" />
+      </Principal>
+      <Dependent Role="dirEntrega">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orden__id_client__34C8D9D1">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="orden" Type="Self.orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="Id_cliente" />
+      </Principal>
+      <Dependent Role="orden">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orden__id_paquet__33D4B598">
+    <End Role="paqueteria" Type="Self.paqueteria" Multiplicity="0..1" />
+    <End Role="orden" Type="Self.orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="paqueteria">
+        <PropertyRef Name="Id_paqueteria" />
+      </Principal>
+      <Dependent Role="orden">
+        <PropertyRef Name="id_paqueteria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__producto__id_sub__30F848ED">
     <End Role="subcategoria" Type="Self.subcategoria" Multiplicity="0..1" />
     <End Role="producto" Type="Self.producto" Multiplicity="*" />
     <ReferentialConstraint>
@@ -94,18 +162,32 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="contextTienda" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="conteTienda" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="categoria" EntityType="Self.categoria" />
     <EntitySet Name="cliente" EntityType="Self.cliente" />
+    <EntitySet Name="dirEntrega" EntityType="Self.dirEntrega" />
     <EntitySet Name="empleado" EntityType="Self.empleado" />
+    <EntitySet Name="orden" EntityType="Self.orden" />
     <EntitySet Name="paqueteria" EntityType="Self.paqueteria" />
     <EntitySet Name="producto" EntityType="Self.producto" />
     <EntitySet Name="subcategoria" EntityType="Self.subcategoria" />
-    <AssociationSet Name="FK__subcatego__id_ca__114A936A" Association="Self.FK__subcatego__id_ca__114A936A">
+    <AssociationSet Name="FK__subcatego__id_ca__25869641" Association="Self.FK__subcatego__id_ca__25869641">
       <End Role="categoria" EntitySet="categoria" />
       <End Role="subcategoria" EntitySet="subcategoria" />
     </AssociationSet>
-    <AssociationSet Name="FK__producto__id_sub__787EE5A0" Association="Self.FK__producto__id_sub__787EE5A0">
+    <AssociationSet Name="FK__dirEntreg__id_cl__2A4B4B5E" Association="Self.FK__dirEntreg__id_cl__2A4B4B5E">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="dirEntrega" EntitySet="dirEntrega" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orden__id_client__34C8D9D1" Association="Self.FK__orden__id_client__34C8D9D1">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="orden" EntitySet="orden" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orden__id_paquet__33D4B598" Association="Self.FK__orden__id_paquet__33D4B598">
+      <End Role="paqueteria" EntitySet="paqueteria" />
+      <End Role="orden" EntitySet="orden" />
+    </AssociationSet>
+    <AssociationSet Name="FK__producto__id_sub__30F848ED" Association="Self.FK__producto__id_sub__30F848ED">
       <End Role="subcategoria" EntitySet="subcategoria" />
       <End Role="producto" EntitySet="producto" />
     </AssociationSet>

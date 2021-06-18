@@ -12,7 +12,7 @@ namespace TiendaProyecto.Controllers
 {
     public class paqueteriaController : Controller
     {
-        private contextTienda db = new contextTienda();
+        private conteTienda db = new conteTienda();
 
         // GET: paqueteria
         public ActionResult Index()
