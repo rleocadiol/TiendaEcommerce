@@ -80,8 +80,10 @@ namespace TiendaProyecto.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    string correo = model.Email;
-                    return RedirectToAction("Index", "Usuario", routeValues: new { email = correo});
+                    {
+                        string correo = model.Email;
+                        return RedirectToAction("Index", "Usuario", routeValues: new { email = correo });
+                    }
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -176,7 +178,7 @@ namespace TiendaProyecto.Controllers
                         Session["name"] = "";
                         Session["correo"] = user.Email;
                     }
-                    return RedirectToAction("Create", "Clientes");
+                    return RedirectToAction("Create", "clientes");
                 }
                 AddErrors(result);
             }

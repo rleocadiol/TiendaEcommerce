@@ -73,5 +73,62 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="dirEntrega">
+      <EntityTypeMapping TypeName="TiendaModel.dirEntrega">
+        <MappingFragment StoreEntitySet="dirEntrega">
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="colonia" ColumnName="colonia" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="Id_dirEntrega" ColumnName="Id_dirEntrega" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orden">
+      <EntityTypeMapping TypeName="TiendaModel.orden">
+        <MappingFragment StoreEntitySet="orden">
+          <ScalarProperty Name="fecha_entrega" ColumnName="fecha_entrega" />
+          <ScalarProperty Name="fecha_envio" ColumnName="fecha_envio" />
+          <ScalarProperty Name="num_guia" ColumnName="num_guia" />
+          <ScalarProperty Name="id_paqueteria" ColumnName="id_paqueteria" />
+          <ScalarProperty Name="id_dirEntrega" ColumnName="id_dirEntrega" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="num_confirmacion" ColumnName="num_confirmacion" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="Id_orden" ColumnName="Id_orden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orden_detalle">
+      <EntityTypeMapping TypeName="TiendaModel.orden_detalle">
+        <MappingFragment StoreEntitySet="orden_detalle">
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="prodcuto_precio" ColumnName="prodcuto_precio" />
+          <ScalarProperty Name="prodcuto_nombre" ColumnName="prodcuto_nombre" />
+          <ScalarProperty Name="preducto_id" ColumnName="preducto_id" />
+          <ScalarProperty Name="orden_id" ColumnName="orden_id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orden_producto">
+      <EntityTypeMapping TypeName="TiendaModel.orden_producto">
+        <MappingFragment StoreEntitySet="orden_producto">
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+          <ScalarProperty Name="id_orden" ColumnName="id_orden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="producto_has_categoria">
+      <EntityTypeMapping TypeName="TiendaModel.producto_has_categoria">
+        <MappingFragment StoreEntitySet="producto_has_categoria">
+          <ScalarProperty Name="categoria_id" ColumnName="categoria_id" />
+          <ScalarProperty Name="producto_id" ColumnName="producto_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
