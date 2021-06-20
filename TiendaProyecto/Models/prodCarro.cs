@@ -21,7 +21,7 @@ namespace TiendaProyecto.Models
 
         public producto find (int id)
         {
-            producto pp = this.productos.Single(p => p.id_subcategoria.Equals(id));
+            producto pp = this.productos.Single(p => p.Id_producto.Equals(id));
             return pp;
         }
     }

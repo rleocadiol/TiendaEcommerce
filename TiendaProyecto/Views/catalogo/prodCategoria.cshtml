@@ -9,9 +9,14 @@
 <div class="container">
     <div class="col-xs-12 col-md-9">
         <div class="row">
-            @foreach(producto item in ViewBag.productos)
+            @foreach (producto item in ViewBag.productos)
             {
-                //Aquí van los productos
+                <p>@item.nombre</p>
+                <p>@item.precio</p>
+                <p>@item.descripcion</p>
+                <p>
+                    @Html.ActionLink("Añadir al carrito", "Agregar", "Carro", new { id = item.Id_producto}, new { @class = "btn btn-info"})
+                </p>
             };
         </div>
     </div>

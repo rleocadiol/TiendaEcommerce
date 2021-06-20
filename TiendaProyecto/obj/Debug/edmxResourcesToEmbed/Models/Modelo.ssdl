@@ -20,6 +20,17 @@
     <Property Name="estado_t" Type="nvarchar" MaxLength="50" />
     <Property Name="num_tarj_cred_ppal" Type="nchar" MaxLength="16" />
   </EntityType>
+  <EntityType Name="dirEntrega">
+    <Key>
+      <PropertyRef Name="Id_dirEntrega" />
+    </Key>
+    <Property Name="Id_dirEntrega" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="calle" Type="nvarchar" MaxLength="50" />
+    <Property Name="colonia" Type="nvarchar" MaxLength="50" />
+    <Property Name="estado" Type="nvarchar" MaxLength="50" />
+    <Property Name="tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="id_cliente" Type="int" />
+  </EntityType>
   <EntityType Name="empleado">
     <Key>
       <PropertyRef Name="Id_empleado" />
@@ -29,6 +40,43 @@
     <Property Name="email" Type="nchar" MaxLength="255" />
     <Property Name="rol" Type="nchar" MaxLength="20" />
     <Property Name="Departamento" Type="nchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="orden">
+    <Key>
+      <PropertyRef Name="Id_orden" />
+    </Key>
+    <Property Name="Id_orden" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha_creacion" Type="datetime" />
+    <Property Name="num_confirmacion" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="total" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="id_cliente" Type="int" />
+    <Property Name="id_dirEntrega" Type="int" />
+    <Property Name="id_paqueteria" Type="int" />
+    <Property Name="num_guia" Type="nvarchar" MaxLength="50" />
+    <Property Name="fecha_envio" Type="date" />
+    <Property Name="fecha_entrega" Type="date" />
+  </EntityType>
+  <EntityType Name="orden_detalle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="orden_id" Type="int" />
+    <Property Name="preducto_id" Type="int" />
+    <Property Name="prodcuto_nombre" Type="varchar" MaxLength="50" />
+    <Property Name="prodcuto_precio" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="cantidad" Type="smallint" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Tienda.dbo.orden_producto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="orden_producto">
+    <Key>
+      <PropertyRef Name="id_orden" />
+      <PropertyRef Name="id_producto" />
+    </Key>
+    <Property Name="id_orden" Type="int" Nullable="false" />
+    <Property Name="id_producto" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="int" />
   </EntityType>
   <EntityType Name="paqueteria">
     <Key>
@@ -57,6 +105,15 @@
     <Property Name="stock" Type="int" />
     <Property Name="id_subcategoria" Type="int" />
   </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Tienda.dbo.producto_has_categoria' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="producto_has_categoria">
+    <Key>
+      <PropertyRef Name="producto_id" />
+    </Key>
+    <Property Name="producto_id" Type="int" Nullable="false" />
+    <Property Name="categoria_id" Type="int" />
+  </EntityType>
   <EntityType Name="subcategoria">
     <Key>
       <PropertyRef Name="Id_subcategoria" />
@@ -66,6 +123,42 @@
     <Property Name="descripcion" Type="varchar" MaxLength="50" />
     <Property Name="id_categoria" Type="int" />
   </EntityType>
+  <Association Name="FK__dirEntreg__id_cl__0B91BA14">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="dirEntrega" Type="Self.dirEntrega" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="Id_cliente" />
+      </Principal>
+      <Dependent Role="dirEntrega">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orden__id_client__0C85DE4D">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="orden" Type="Self.orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="Id_cliente" />
+      </Principal>
+      <Dependent Role="orden">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orden__id_paquet__08B54D69">
+    <End Role="paqueteria" Type="Self.paqueteria" Multiplicity="0..1" />
+    <End Role="orden" Type="Self.orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="paqueteria">
+        <PropertyRef Name="Id_paqueteria" />
+      </Principal>
+      <Dependent Role="orden">
+        <PropertyRef Name="id_paqueteria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__producto__id_sub__787EE5A0">
     <End Role="subcategoria" Type="Self.subcategoria" Multiplicity="0..1" />
     <End Role="producto" Type="Self.producto" Multiplicity="*" />
@@ -93,10 +186,38 @@
   <EntityContainer Name="TiendaModelStoreContainer">
     <EntitySet Name="categoria" EntityType="Self.categoria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cliente" EntityType="Self.cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dirEntrega" EntityType="Self.dirEntrega" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="empleado" EntityType="Self.empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="orden" EntityType="Self.orden" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="orden_detalle" EntityType="Self.orden_detalle" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="paqueteria" EntityType="Self.paqueteria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="producto" EntityType="Self.producto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="subcategoria" EntityType="Self.subcategoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="orden_producto" EntityType="Self.orden_producto" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [orden_producto].[id_orden] AS [id_orden], 
+    [orden_producto].[id_producto] AS [id_producto], 
+    [orden_producto].[cantidad] AS [cantidad]
+    FROM [dbo].[orden_producto] AS [orden_producto]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="producto_has_categoria" EntityType="Self.producto_has_categoria" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [producto_has_categoria].[producto_id] AS [producto_id], 
+    [producto_has_categoria].[categoria_id] AS [categoria_id]
+    FROM [dbo].[producto_has_categoria] AS [producto_has_categoria]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__dirEntreg__id_cl__0B91BA14" Association="Self.FK__dirEntreg__id_cl__0B91BA14">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="dirEntrega" EntitySet="dirEntrega" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orden__id_client__0C85DE4D" Association="Self.FK__orden__id_client__0C85DE4D">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="orden" EntitySet="orden" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orden__id_paquet__08B54D69" Association="Self.FK__orden__id_paquet__08B54D69">
+      <End Role="paqueteria" EntitySet="paqueteria" />
+      <End Role="orden" EntitySet="orden" />
+    </AssociationSet>
     <AssociationSet Name="FK__producto__id_sub__787EE5A0" Association="Self.FK__producto__id_sub__787EE5A0">
       <End Role="subcategoria" EntitySet="subcategoria" />
       <End Role="producto" EntitySet="producto" />

@@ -28,6 +28,7 @@ namespace TiendaProyecto.Controllers
                 var listProd = query.ToList();
                 ViewBag.Listado = listProd;
             }
+            return View();
         }
         public ActionResult prodCategoria(int idCat)
         {
@@ -41,7 +42,7 @@ namespace TiendaProyecto.Controllers
             if (idCat == 1)
             {
                 mercancia = query.ToList();
-                ViewBag.Catego = "categoria1"; 
+                ViewBag.Catego = "Sub1"; 
             }
             ViewBag.productos = mercancia;
             return View();

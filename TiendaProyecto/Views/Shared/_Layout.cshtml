@@ -28,7 +28,7 @@
                     <li>
                         @using (Html.BeginForm("BuscaProd", "catalogo", FormMethod.Post, new { @class = "form-inline" }))
                         {
-                            <input class="form-control mr-sm-2" type="text" id="nomBuscar" placeholder="Nombre producto"/>
+                            <input class="form-control mr-sm-2" type="text" id="nomBuscar" name="nomBuscar" placeholder="Nombre producto"/>
                             <button class="btn btn-success" type="submit" value="submit">Buscar</button>
                         }
                     </li>

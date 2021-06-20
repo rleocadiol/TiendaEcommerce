@@ -1,4 +1,4 @@
-﻿}using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,6 +14,7 @@ namespace TiendaProyecto.Controllers
         {
             return View();
         }
+        
         public ActionResult CrearOrden()
         {
             if (!User.Identity.IsAuthenticated)
@@ -23,6 +24,7 @@ namespace TiendaProyecto.Controllers
             }
                  var orden = new orden();
                  var bd = new contextTienda();
+            return View();
         }
     }
 }

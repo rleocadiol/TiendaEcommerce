@@ -1,4 +1,4 @@
-﻿
+﻿@using TiendaProyecto.Models
 @{
     ViewBag.Title = "BuscaProd";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,5 +6,10 @@
 
 <h2>Lista de Productos con nombre @ViewBag.SearchKey</h2>
 
+@foreach (producto producto in ViewBag.Listado)
+{
+    <p>@producto.nombre</p>
+    <p>@producto.descripcion</p>
+    <a href="@Url.Action("Comprar","Carro",new { id=producto.Id_producto})">Comprar ahora</a>
+}
 <!--AQUÍ VAN LOS PRODUCTOS QUE SE BUSCAN-->
-
