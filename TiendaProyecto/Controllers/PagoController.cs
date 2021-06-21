@@ -1,4 +1,4 @@
-﻿}using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -22,7 +22,8 @@ namespace TiendaProyecto.Controllers
                  return RedirectToAction("Login", "Acount");
             }
                  var orden = new orden();
-                 var bd = new contextTienda();
+                 var bd = new dbutContext();
+            return RedirectToAction("Index", "Pago");
         }
     }
 }

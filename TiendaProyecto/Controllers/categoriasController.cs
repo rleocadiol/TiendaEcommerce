@@ -13,7 +13,7 @@ namespace TiendaProyecto.Controllers
     [Authorize]
     public class categoriasController : Controller
     {
-        private contextTienda db = new contextTienda();
+        private dbutContext db = new dbutContext();
 
         // GET: categorias
         public ActionResult Index()

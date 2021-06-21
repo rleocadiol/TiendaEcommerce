@@ -7,7 +7,7 @@ namespace TiendaProyecto.Models
 {
     public class prodCarro
     {
-        private contextTienda db = new contextTienda();
+        private dbutContext db = new dbutContext();
         private List<producto> productos;
         public prodCarro()
         {

@@ -9,26 +9,26 @@ namespace TiendaProyecto.Controllers
 {
     public class catalogoController : Controller
     {
-        private contextTienda db = new contextTienda();
+        private dbutContext db = new dbutContext();
         // GET: catalogo
         public ActionResult Index()
         {
             return View();
         }
 
-        [HttpPost]
-        public ActionResult BuscaProd(string nomBuscar)
-        {
-            ViewBag.SearchKey = nomBuscar;
-            using (db)
-            {
-                var query = from st in db.producto
-                            where st.nombre.Contains(nomBuscar)
-                            select st;
-                var listProd = query.ToList();
-                ViewBag.Listado = listProd;
-            }
-        }
+       // [HttpPost]
+        //public ActionResult BuscaProd(string nomBuscar)
+        //{
+         //   ViewBag.SearchKey = nomBuscar;
+         //   using (db)
+         //   {
+         //       var query = from st in db.producto
+         //                   where st.nombre.Contains(nomBuscar)
+         //                   select st;
+         //       var listProd = query.ToList();
+         //       ViewBag.Listado = listProd;
+           // }
+        //}
         public ActionResult prodCategoria(int idCat)
         {
             List<producto> mercancia = null;
