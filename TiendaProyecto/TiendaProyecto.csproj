@@ -227,6 +227,7 @@
     <Compile Include="Controllers\categoriasController.cs" />
     <Compile Include="Controllers\clientesController.cs" />
     <Compile Include="Controllers\ComprasController.cs" />
+    <Compile Include="Controllers\dirEntregasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PagoController.cs" />
@@ -291,6 +292,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\estilos.css" />
     <Content Include="Content\img11.png" />
+    <Content Include="Content\img\productos\c1.jpeg" />
+    <Content Include="Content\img\productos\c2.jpg" />
+    <Content Include="Content\img\productos\c3.jpg" />
+    <Content Include="Content\img\productos\c3.png" />
+    <Content Include="Content\img\productos\im2.jpeg" />
     <Content Include="Content\logo.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -400,10 +406,15 @@
     <Content Include="Views\clientes\Invalida.cshtml" />
     <Content Include="Views\Home\catalogo.cshtml" />
     <Content Include="Views\Shared\_Layout_Paqueteria.cshtml" />
+    <Content Include="Views\dirEntregas\Create.cshtml" />
+    <Content Include="Views\dirEntregas\Delete.cshtml" />
+    <Content Include="Views\dirEntregas\Details.cshtml" />
+    <Content Include="Views\dirEntregas\Edit.cshtml" />
+    <Content Include="Views\dirEntregas\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout_catalogo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\img\productos\" />
     <Folder Include="Views\Pago\" />
     <Folder Include="Views\Usuario\" />
   </ItemGroup>
