@@ -398,6 +398,8 @@
     <Content Include="Views\catalogo\prodCategoria.cshtml" />
     <Content Include="Views\Carro\Index.cshtml" />
     <Content Include="Views\clientes\Invalida.cshtml" />
+    <Content Include="Views\Home\catalogo.cshtml" />
+    <Content Include="Views\Shared\_Layout_Paqueteria.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

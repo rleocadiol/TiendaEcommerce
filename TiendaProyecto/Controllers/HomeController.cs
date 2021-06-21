@@ -26,5 +26,11 @@ namespace TiendaProyecto.Controllers
 
             return View();
         }
+        
+        public ActionResult catalogo()
+        {
+            return View();
+        }
+
     }
 }

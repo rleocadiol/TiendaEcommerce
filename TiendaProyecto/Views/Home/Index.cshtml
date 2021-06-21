@@ -15,8 +15,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{!! asset('css/style_slider.css') !!}">
     <link rel="stylesheet" href="{!! asset('css/style.css') !!}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-        <script src="https://kit.fontawesome.com/1669efdec3.js" crossorigin="anonymous"></script>
+
+    <style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family:verdana;
+}
+
+li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.center {
+    position: absolute;
+    right: 345px;
+    width: -200px;
+    padding: 10px;
+}
+
+div.img {
+    border: 1px solid #ccc;
+    height: 200px;
+    width:200px;
+}
+
+div.img:hover {
+    border: 1px solid #777;
+}
+
+div.img img {
+    width: 100%;
+    height: 100%;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.responsive {
+    padding: 0 6px;
+    float: left;
+    right: 345px;
+    width: -200px;
+}
+
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+    </style>
 </head>
 <body>
     <div>
@@ -78,7 +150,7 @@
                         <div>
                             <div class="slider">
                                 <div class="img-slider" id="ultimo">
-                                    <img src="images/c1.jpg">
+                                    <img src="images/c1.jpg/">
                                 </div>
                                 <div class="img-slider">
                                     <img src="images/c2.jpg">
