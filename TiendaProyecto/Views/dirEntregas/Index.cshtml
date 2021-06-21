@@ -5,6 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -29,29 +35,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.calle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.colonia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cliente.nombre)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id_dirEntrega }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id_dirEntrega }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id_dirEntrega })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.calle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.colonia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cliente.nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id_dirEntrega }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id_dirEntrega }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id_dirEntrega })
+            </td>
+        </tr>
+    }
 
 </table>

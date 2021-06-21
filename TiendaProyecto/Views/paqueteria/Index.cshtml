@@ -4,16 +4,23 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout_Paqueteria.cshtml";
 }
-<br/>
 <br />
 <br />
 <br />
-<br/>
+<br />
+<br />
 <br />
 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 
 <table class="table" style="padding-left:350px;">
+    
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.nombre)
@@ -39,35 +46,36 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.rfc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.web)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.direccion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.contacto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tel_contacto)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id_paqueteria }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id_paqueteria }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id_paqueteria })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rfc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.web)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contacto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tel_contacto)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id_paqueteria }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id_paqueteria }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id_paqueteria })
+            </td>
+        </tr>
+    }
 
 </table>
