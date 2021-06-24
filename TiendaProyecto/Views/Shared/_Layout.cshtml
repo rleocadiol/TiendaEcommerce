@@ -1,13 +1,18 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/css/estilos.css")
+    @Styles.Render("~/Content/css/style_slider.css")
     @Scripts.Render("~/bundles/modernizr")
-
+    <link rel="stylesheet" href="{!! asset('Content/css/style_slider.css') !!}">
+    <link rel="stylesheet" href="{!! asset('Content/css/style.css') !!}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/1669efdec3.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">

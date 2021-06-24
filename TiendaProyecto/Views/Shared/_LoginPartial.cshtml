@@ -1,4 +1,16 @@
 ﻿@using Microsoft.AspNet.Identity
+@{ 
+    String num = "-1";
+    if (@Session["itemTotal"]==null)
+    {
+        <p>Es nulo, carnal</p>
+    }
+    else
+    {
+        num = @Session["itemTotal"].ToString();
+    }
+
+}
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -7,7 +19,16 @@
         string name =  Session["usr"].ToString();
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @Html.ActionLink("Hola " + name + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            <a class="btn" href="@Url.Action("Index","Carro")">
+                <i class="fa fa-shopping-cart" style="font-size:24px;color:lightgoldenrodyellow"></i>
+                <span class="badge" style="color:lightgoldenrodyellow">@num</span>
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Hola @name <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li>@Html.ActionLink("Mis Pedidos", "Index", "Pedidos", null, new { id="add"})</li>
+            </ul>
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
     </ul>
@@ -16,6 +37,12 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a class="btn" href="@Url.Action("Index","Carro")">
+                <i class="fa fa-shopping-cart" style="font-size:24px;color:lightgoldenrodyellow"></i>
+                <span class="badge" style="color:lightgoldenrodyellow">@num</span>
+            </a>
+        </li>
         <li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>

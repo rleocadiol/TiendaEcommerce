@@ -65,7 +65,7 @@ namespace TiendaProyecto.Controllers
                     cliente.calle_t = calle_t;
                     cliente.colonia_t = colonia_t;
                     cliente.estado_t = estado_t;
-                    cliente.num_tarj_cred_ppal = cliente.num_tarj_cred_ppal;
+                    cliente.num_tarj_cred_ppal = num_tarj_cred_ppal;
                     dirEntrega dir = new dirEntrega();
                     dir.calle = calle_t;
                     dir.colonia = colonia_t;
@@ -118,7 +118,7 @@ namespace TiendaProyecto.Controllers
         public ActionResult BorraUser()
         {
             string idUser = User.Identity.GetUserId();
-            return RedirectToAction("Delete", "Acount", routeValues: new { id = idUser });
+            return RedirectToAction("Delete", "Account", routeValues: new { id = idUser });
         }
 
         private bool validaPago(string nombre, string calle_t, string colonia_t, string estado_t, string num_tarj_cred_ppal, string mes, string anio, string cvv)
@@ -179,43 +179,10 @@ namespace TiendaProyecto.Controllers
         private bool validarTarj(string tarj)
         {
             bool retorna = true;
-            StringBuilder digitsOnly = new StringBuilder();
-            foreach(Char c in tarj)
-            {
-                if (Char.IsDigit(c))
-                {
-                    digitsOnly.Append(c);
-                }
-            };
-            if (digitsOnly.Length > 18 || digitsOnly.Length < 15)
+            if (tarj.Length > 18 || tarj.Length < 15)
             {
                 return false;
             }
-
-            int sum = 0;
-            int digit = 0;
-            int added = 0;
-            bool timesTwo = false;
-
-            for (int i = digitsOnly.Length; i >= 0; i--)
-            {
-                digit = Int32.Parse(digitsOnly.ToString(i, 1));
-                if (timesTwo)
-                {
-                    added = digit * 2;
-                    if (added > 9)
-                    {
-                        added -= 9;
-                    }
-                }
-                else
-                {
-                    added = digit;
-                }
-                sum += added;
-                timesTwo = !timesTwo;
-            }
-            retorna = ((sum % 10) == 0);
             return retorna;
         }
 

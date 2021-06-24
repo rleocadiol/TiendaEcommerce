@@ -61,6 +61,7 @@
     <Property Name="stock" Type="Int32" />
     <Property Name="id_subcategoria" Type="Int32" />
     <NavigationProperty Name="subcategoria" Relationship="Self.FK__producto__id_sub__787EE5A0" FromRole="producto" ToRole="subcategoria" />
+    <NavigationProperty Name="orden_producto" Relationship="TiendaModel.FK__orden_pro__id_pr__3B40CD36" FromRole="producto" ToRole="orden_producto" />
   </EntityType>
   <EntityType Name="subcategoria">
     <Key>
@@ -129,6 +130,14 @@
       <End Role="paqueteria" EntitySet="paqueteria" />
       <End Role="orden" EntitySet="orden" />
     </AssociationSet>
+    <AssociationSet Name="FK__orden_pro__id_or__3A4CA8FD" Association="TiendaModel.FK__orden_pro__id_or__3A4CA8FD">
+      <End Role="orden" EntitySet="orden" />
+      <End Role="orden_producto" EntitySet="orden_producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orden_pro__id_pr__3B40CD36" Association="TiendaModel.FK__orden_pro__id_pr__3B40CD36">
+      <End Role="producto" EntitySet="producto" />
+      <End Role="orden_producto" EntitySet="orden_producto" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="dirEntrega">
     <Key>
@@ -158,6 +167,7 @@
     <Property Name="fecha_entrega" Type="DateTime" Precision="0" />
     <NavigationProperty Name="cliente" Relationship="TiendaModel.FK__orden__id_client__0C85DE4D" FromRole="orden" ToRole="cliente" />
     <NavigationProperty Name="paqueteria" Relationship="TiendaModel.FK__orden__id_paquet__08B54D69" FromRole="orden" ToRole="paqueteria" />
+    <NavigationProperty Name="orden_producto" Relationship="TiendaModel.FK__orden_pro__id_or__3A4CA8FD" FromRole="orden" ToRole="orden_producto" />
   </EntityType>
   <EntityType Name="orden_detalle">
     <Key>
@@ -178,6 +188,8 @@
     <Property Name="id_orden" Type="Int32" Nullable="false" />
     <Property Name="id_producto" Type="Int32" Nullable="false" />
     <Property Name="cantidad" Type="Int32" />
+    <NavigationProperty Name="orden" Relationship="TiendaModel.FK__orden_pro__id_or__3A4CA8FD" FromRole="orden_producto" ToRole="orden" />
+    <NavigationProperty Name="producto" Relationship="TiendaModel.FK__orden_pro__id_pr__3B40CD36" FromRole="orden_producto" ToRole="producto" />
   </EntityType>
   <EntityType Name="producto_has_categoria">
     <Key>
@@ -219,6 +231,30 @@
       </Principal>
       <Dependent Role="orden">
         <PropertyRef Name="id_paqueteria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orden_pro__id_or__3A4CA8FD">
+    <End Type="TiendaModel.orden" Role="orden" Multiplicity="1" />
+    <End Type="TiendaModel.orden_producto" Role="orden_producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="orden">
+        <PropertyRef Name="Id_orden" />
+      </Principal>
+      <Dependent Role="orden_producto">
+        <PropertyRef Name="id_orden" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orden_pro__id_pr__3B40CD36">
+    <End Type="TiendaModel.producto" Role="producto" Multiplicity="1" />
+    <End Type="TiendaModel.orden_producto" Role="orden_producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="producto">
+        <PropertyRef Name="Id_producto" />
+      </Principal>
+      <Dependent Role="orden_producto">
+        <PropertyRef Name="id_producto" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
