@@ -1,0 +1,51 @@
+﻿@using TiendaProyecto.Models
+@{
+    ViewBag.Title = "CrearOrden";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string c = Session["usr"].ToString();
+    string d = Session["dirCliente"].ToString();
+    string fO = Session["fechaOrden"].ToString();
+    string fE = Session["fPEntrega"].ToString();
+    int tTarj = Convert.ToInt32(Session["tTarj"].ToString());
+    string fig = "";
+    string nTarj = Session["nTarj"].ToString();
+    switch (tTarj)
+    {
+        case 1:
+            fig = "visa.png";
+            break;
+        case 2:
+            fig = "master.png";
+            break;
+        case 3:
+            fig = "american.png";
+            break;
+    }
+}
+
+<h2>CrearOrden</h2>
+
+<p>@c</p>
+<p>@d</p>
+<p>@fO</p>
+<p>@fE</p>
+
+@foreach (item item in (List<item>)Session["cart"])
+{
+    <p>@item.Producto.imagen</p>
+    <p>@item.Producto.nombre</p>
+    <p>@item.Producto.precio</p>
+    <p>@item.Cantidad</p>
+    <p>@(item.Producto.precio * item.Cantidad)</p>
+}
+<h5>
+    @{
+        List<item> cart = (List<item>)Session["cart"];
+        var total = cart.Sum(item => item.Producto.precio * item.Cantidad);
+    }
+    @total
+</h5>
+
+<a href="@Url.Action("Pagar", "Pago", new { tipoPago="T"})" style="text-decoration:none">Tarjeta</a>
+<a href="@Url.Action("Pagar", "Pago", new { tipoPago="P"})" style="text-decoration:none">Tarjeta</a>

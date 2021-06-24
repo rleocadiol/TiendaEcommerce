@@ -175,7 +175,7 @@ namespace TiendaProyecto.Controllers
                     }
                     else
                     {
-                        Session["name"] = "";
+                        Session["usr"] = "";
                         Session["correo"] = user.Email;
                     }
                     return RedirectToAction("Create", "clientes");
@@ -187,7 +187,7 @@ namespace TiendaProyecto.Controllers
             return View(model);
         }
 
-        [HttpPost]
+        [HttpGet]
         public async Task<ActionResult> Delete (string id)
         {
             if (ModelState.IsValid)
@@ -197,6 +197,7 @@ namespace TiendaProyecto.Controllers
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
                 var user = await UserManager.FindByIdAsync(id);
+                var result = await UserManager.DeleteAsync(user);
             }
             return RedirectToAction("Register");
         }

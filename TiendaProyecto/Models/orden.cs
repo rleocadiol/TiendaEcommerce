@@ -14,6 +14,12 @@ namespace TiendaProyecto.Models
     
     public partial class orden
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public orden()
+        {
+            this.orden_producto = new HashSet<orden_producto>();
+        }
+    
         public int Id_orden { get; set; }
         public Nullable<System.DateTime> fecha_creacion { get; set; }
         public Nullable<decimal> num_confirmacion { get; set; }
@@ -27,5 +33,7 @@ namespace TiendaProyecto.Models
     
         public virtual cliente cliente { get; set; }
         public virtual paqueteria paqueteria { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<orden_producto> orden_producto { get; set; }
     }
 }
