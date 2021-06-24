@@ -17,5 +17,8 @@ namespace TiendaProyecto.Models
         public int id_orden { get; set; }
         public int id_producto { get; set; }
         public Nullable<int> cantidad { get; set; }
+    
+        public virtual orden orden { get; set; }
+        public virtual producto producto { get; set; }
     }
 }

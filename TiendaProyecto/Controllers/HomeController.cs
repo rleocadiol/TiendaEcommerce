@@ -10,6 +10,11 @@ namespace TiendaProyecto.Controllers
     {
         public ActionResult Index()
         {
+            if (Session["itemTotal"]==null)
+            {
+                Console.WriteLine("Si entra");
+                Session["itemTotal"] = 0;
+            }
             return View();
         }
 

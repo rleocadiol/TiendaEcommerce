@@ -67,8 +67,6 @@
     <Property Name="prodcuto_precio" Type="numeric" Precision="18" Scale="0" />
     <Property Name="cantidad" Type="smallint" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'Tienda.dbo.orden_producto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="orden_producto">
     <Key>
       <PropertyRef Name="id_orden" />
@@ -159,6 +157,30 @@ advertencia 6002: La tabla o vista 'Tienda.dbo.producto_has_categoria' no tiene 
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__orden_pro__id_or__3A4CA8FD">
+    <End Role="orden" Type="Self.orden" Multiplicity="1" />
+    <End Role="orden_producto" Type="Self.orden_producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="orden">
+        <PropertyRef Name="Id_orden" />
+      </Principal>
+      <Dependent Role="orden_producto">
+        <PropertyRef Name="id_orden" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orden_pro__id_pr__3B40CD36">
+    <End Role="producto" Type="Self.producto" Multiplicity="1" />
+    <End Role="orden_producto" Type="Self.orden_producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="producto">
+        <PropertyRef Name="Id_producto" />
+      </Principal>
+      <Dependent Role="orden_producto">
+        <PropertyRef Name="id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__producto__id_sub__787EE5A0">
     <End Role="subcategoria" Type="Self.subcategoria" Multiplicity="0..1" />
     <End Role="producto" Type="Self.producto" Multiplicity="*" />
@@ -190,16 +212,10 @@ advertencia 6002: La tabla o vista 'Tienda.dbo.producto_has_categoria' no tiene 
     <EntitySet Name="empleado" EntityType="Self.empleado" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="orden" EntityType="Self.orden" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="orden_detalle" EntityType="Self.orden_detalle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="orden_producto" EntityType="Self.orden_producto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="paqueteria" EntityType="Self.paqueteria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="producto" EntityType="Self.producto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="subcategoria" EntityType="Self.subcategoria" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="orden_producto" EntityType="Self.orden_producto" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [orden_producto].[id_orden] AS [id_orden], 
-    [orden_producto].[id_producto] AS [id_producto], 
-    [orden_producto].[cantidad] AS [cantidad]
-    FROM [dbo].[orden_producto] AS [orden_producto]</DefiningQuery>
-    </EntitySet>
     <EntitySet Name="producto_has_categoria" EntityType="Self.producto_has_categoria" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [producto_has_categoria].[producto_id] AS [producto_id], 
@@ -217,6 +233,14 @@ advertencia 6002: La tabla o vista 'Tienda.dbo.producto_has_categoria' no tiene 
     <AssociationSet Name="FK__orden__id_paquet__08B54D69" Association="Self.FK__orden__id_paquet__08B54D69">
       <End Role="paqueteria" EntitySet="paqueteria" />
       <End Role="orden" EntitySet="orden" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orden_pro__id_or__3A4CA8FD" Association="Self.FK__orden_pro__id_or__3A4CA8FD">
+      <End Role="orden" EntitySet="orden" />
+      <End Role="orden_producto" EntitySet="orden_producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orden_pro__id_pr__3B40CD36" Association="Self.FK__orden_pro__id_pr__3B40CD36">
+      <End Role="producto" EntitySet="producto" />
+      <End Role="orden_producto" EntitySet="orden_producto" />
     </AssociationSet>
     <AssociationSet Name="FK__producto__id_sub__787EE5A0" Association="Self.FK__producto__id_sub__787EE5A0">
       <End Role="subcategoria" EntitySet="subcategoria" />

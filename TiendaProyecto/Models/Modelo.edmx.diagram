@@ -21,6 +21,8 @@
         <AssociationConnector Association="TiendaModel.FK__dirEntreg__id_cl__0B91BA14" />
         <AssociationConnector Association="TiendaModel.FK__orden__id_client__0C85DE4D" />
         <AssociationConnector Association="TiendaModel.FK__orden__id_paquet__08B54D69" />
+        <AssociationConnector Association="TiendaModel.FK__orden_pro__id_or__3A4CA8FD" />
+        <AssociationConnector Association="TiendaModel.FK__orden_pro__id_pr__3B40CD36" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

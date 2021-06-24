@@ -298,8 +298,45 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\estilos.css" />
+    <Content Include="Content\css\estilos2.css" />
+    <Content Include="Content\css\estilos3.css" />
+    <Content Include="Content\css\estilos4.css" />
+    <Content Include="Content\css\estilos5.css" />
+    <Content Include="Content\css\estilos6.css" />
+    <Content Include="Content\css\estilos7.css" />
+    <Content Include="Content\css\style_slider.css" />
     <Content Include="Content\estilos.css" />
+    <Content Include="Content\images\c1.jpg" />
+    <Content Include="Content\images\c2.jpg" />
+    <Content Include="Content\images\c3.jpg" />
+    <Content Include="Content\images\c4.jpg" />
+    <Content Include="Content\images\cara.png" />
+    <Content Include="Content\images\carrito.jpg" />
+    <Content Include="Content\images\cu1.jpg" />
+    <Content Include="Content\images\dhl.jpg" />
+    <Content Include="Content\images\estafeta.png" />
+    <Content Include="Content\images\fac.jpg" />
+    <Content Include="Content\images\fed.png" />
+    <Content Include="Content\images\fondo.jpg" />
+    <Content Include="Content\images\fondo2.jpg" />
+    <Content Include="Content\images\fondo3.jpg" />
+    <Content Include="Content\images\fondo4.jpg" />
+    <Content Include="Content\images\fondo5.jpg" />
+    <Content Include="Content\images\L1.jpg" />
+    <Content Include="Content\images\logoop.png" />
+    <Content Include="Content\images\pac.jpg" />
+    <Content Include="Content\images\prueba.png" />
+    <Content Include="Content\images\s1.jpg" />
+    <Content Include="Content\images\s2.jpg" />
+    <Content Include="Content\images\s3.jpg" />
+    <Content Include="Content\images\s4.jpg" />
+    <Content Include="Content\images\v1.jpg" />
     <Content Include="Content\img11.png" />
+    <Content Include="Content\js\jquery-3.2.1.js" />
+    <Content Include="Content\js\jquery.js" />
+    <Content Include="Content\js\jquery_slider.js" />
+    <Content Include="Content\js\script.js" />
     <Content Include="Content\logo.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -401,11 +438,14 @@
     <Content Include="Views\catalogo\prodCategoria.cshtml" />
     <Content Include="Views\Carro\Index.cshtml" />
     <Content Include="Views\clientes\Invalida.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial1.cshtml" />
+    <Content Include="Views\Pago\CrearOrden.cshtml" />
+    <Content Include="Views\Pago\pagoNoAceptado.cshtml" />
+    <Content Include="Views\Pago\pagoAceptado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\img\productos\" />
-    <Folder Include="Views\Pago\" />
     <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>
