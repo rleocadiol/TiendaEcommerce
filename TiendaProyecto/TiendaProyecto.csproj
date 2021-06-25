@@ -231,6 +231,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PagoController.cs" />
     <Compile Include="Controllers\paqueteriaController.cs" />
+    <Compile Include="Controllers\PedidosController.cs" />
     <Compile Include="Controllers\productosController.cs" />
     <Compile Include="Controllers\subcategoriasController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -252,6 +253,7 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\item.cs" />
+    <Compile Include="Models\ItemPedido.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Modelo.Context.cs">
       <AutoGen>True</AutoGen>
@@ -280,6 +282,7 @@
     <Compile Include="Models\paqueteria.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PedidoCliente.cs" />
     <Compile Include="Models\prodCarro.cs" />
     <Compile Include="Models\producto.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
@@ -442,6 +445,7 @@
     <Content Include="Views\Pago\CrearOrden.cshtml" />
     <Content Include="Views\Pago\pagoNoAceptado.cshtml" />
     <Content Include="Views\Pago\pagoAceptado.cshtml" />
+    <Content Include="Views\Pedidos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

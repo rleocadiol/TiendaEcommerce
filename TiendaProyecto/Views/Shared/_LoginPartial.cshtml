@@ -16,7 +16,7 @@
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
     @Html.AntiForgeryToken()
-        string name =  Session["usr"].ToString();
+        string name =  Session["name"].ToString();
     <ul class="nav navbar-nav navbar-right">
         <li>
             <a class="btn" href="@Url.Action("Index","Carro")">
