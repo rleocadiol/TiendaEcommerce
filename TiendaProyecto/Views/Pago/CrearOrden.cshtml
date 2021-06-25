@@ -48,7 +48,7 @@
         @foreach (item item1 in (List<item>)Session["cart"])
         {
             <tr>
-                <td><img src="sourse/img/@item1.Producto.imagen" style="max-width: 80px;"></td>
+                <td><img src="~/Content/img/Enseres/@item1.Producto.imagen" style="max-width: 80px;"></td>
                 <td>@item1.Producto.nombre</td>
                 <td>@item1.Producto.precio</td>
                 <td>@item1.Cantidad</td>
