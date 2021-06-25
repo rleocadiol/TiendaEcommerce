@@ -2,14 +2,29 @@
 @{
     ViewBag.Title = "BuscaProd";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    String precio = "Precio: ";
 }
 
-<h2>Lista de Productos con nombre @ViewBag.SearchKey</h2>
+<h2></h2>
+<h1 class="text-success" style="color:aliceblue;text-align:center">@ViewBag.Cate</h1>
 
-@foreach (producto producto in ViewBag.Listado)
-{
-    <p>@producto.nombre</p>
-    <p>@producto.descripcion</p>
-    <a href="@Url.Action("Comprar","Carro",new { id=producto.Id_producto})">Comprar ahora</a>
-}
+<div class="container">
+    <div class="row">
+        @foreach (producto producto in ViewBag.Listado)
+        {
+            <div class="col-6 col-sm-3" style="text-align:center">
+                <br>
+                <img class="rounded-circle" src="~/Content/img/Enseres/@producto.imagen" style="height:auto;width:170px" />
+                <h3 class="text-success" style="color:aliceblue">@producto.nombre</h3>
+                @precio @producto.precio
+                <br>
+                @producto.descripcion
+                <br>
+                <br />
+                <a class="btn btn-info" href="@Url.Action("Agregar","Carro",new { id=producto.Id_producto})">Comprar ahora</a>
+            </div>
+        };
+    </div>
+</div>
+
 <!--AQUÍ VAN LOS PRODUCTOS QUE SE BUSCAN-->

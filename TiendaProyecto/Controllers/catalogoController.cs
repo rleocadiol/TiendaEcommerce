@@ -42,7 +42,22 @@ namespace TiendaProyecto.Controllers
             if (idCat == 1)
             {
                 mercancia = query.ToList();
-                ViewBag.Catego = "Sub1"; 
+                ViewBag.Catego = "Cuchillos"; 
+            }
+            if (idCat == 2)
+            {
+                mercancia = query.ToList();
+                ViewBag.Catego = "Cucharas";
+            }
+            if (idCat == 1002)
+            {
+                mercancia = query.ToList();
+                ViewBag.Catego = "Tenedores";
+            }
+            if (idCat == 1003)
+            {
+                mercancia = query.ToList();
+                ViewBag.Catego = "Platos";
             }
             ViewBag.productos = mercancia;
             return View();

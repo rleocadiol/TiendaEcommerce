@@ -2,23 +2,29 @@
 @{
     ViewBag.Title = "prodCategoria";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    String precio = "Precio ";
 }
 
-<h2>@ViewBag.Catego</h2>
+<h1 class="text-success" style="color:aliceblue;text-align:center">@ViewBag.Catego</h1>
 
 <div class="container">
-    <div class="col-xs-12 col-md-9">
-        <div class="row">
-            @foreach (producto item in ViewBag.productos)
-            {
-                <p>@item.nombre</p>
-                <p>@item.precio</p>
-                <p>@item.descripcion</p>
-                <p>
-                    @Html.ActionLink("Añadir al carrito", "Agregar", "Carro", new { id = item.Id_producto}, new { @class = "btn btn-info"})
-                </p>
-            };
+    <div class="row">
+        @foreach (producto item1 in ViewBag.productos)
+        {
+            <div class="col-6 col-sm-3" style="text-align:center">
+                <br>
+
+                <img class="rounded-circle" src="~/Content/img/Enseres/@item1.imagen" style="height:auto;width:170px" />
+                <h3 class="text-success" style="color:aliceblue">@item1.nombre</h3>
+                @precio @item1.precio
+                <br>
+                @item1.descripcion
+                <br>
+                <br />
+                @Html.ActionLink("Añadir al carrito", "Agregar", "Carro", new { id = item1.Id_producto }, new { @class = "btn btn-info" })
+
+            </div>
+        };
         </div>
-    </div>
 </div>
 

@@ -42,6 +42,9 @@ namespace TiendaProyecto.Controllers
                 }
                 Session["cart"] = cart;
             }
+            int num = Int32.Parse(Session["itemTotal"].ToString());
+            num++;
+            Session["itemTotal"] = num;
             return RedirectToAction("Index");
         }
 
@@ -64,6 +67,9 @@ namespace TiendaProyecto.Controllers
             int index = isExist(id);
             cart.RemoveAt(index);
             Session["cart"] = cart;
+            int num = Int32.Parse(Session["itemTotal"].ToString());
+            num--;
+            Session["itemTotal"] = num;
             return RedirectToAction("Index");
         }
     }

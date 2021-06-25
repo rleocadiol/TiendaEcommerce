@@ -22,30 +22,55 @@
             fig = "american.png";
             break;
     }
+    String nombre = "Cliente: ";
+    String direccion = "Dirección: ";
+    String fechaC = "Orden creada el día: ";
+    String fechaE = "Día de entrega: ";
+    String tarj = "Pagar con la tarjeta: ";
 }
 
-<h2>CrearOrden</h2>
+<h1 class="text-success" style="color:aliceblue;text-align:center">Finalizar compra</h1>
 
-<p>@c</p>
-<p>@d</p>
-<p>@fO</p>
-<p>@fE</p>
 
-@foreach (item item in (List<item>)Session["cart"])
-{
-    <p>@item.Producto.imagen</p>
-    <p>@item.Producto.nombre</p>
-    <p>@item.Producto.precio</p>
-    <p>@item.Cantidad</p>
-    <p>@(item.Producto.precio * item.Cantidad)</p>
-}
-<h5>
-    @{
-        List<item> cart = (List<item>)Session["cart"];
-        var total = cart.Sum(item => item.Producto.precio * item.Cantidad);
-    }
-    @total
-</h5>
+<div class="container">
+    <h3>@nombre @c</h3>
 
-<a href="@Url.Action("Pagar", "Pago", new { tipoPago="T"})" style="text-decoration:none">Tarjeta</a>
-<a href="@Url.Action("Pagar", "Pago", new { tipoPago="P"})" style="text-decoration:none">Tarjeta</a>
+    <table class="table table-bordered table-responsive table-striped">
+        <thead class="info">
+            <tr>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        @foreach (item item1 in (List<item>)Session["cart"])
+        {
+            <tr>
+                <td><img src="~/Content/img/Enseres/@item1.Producto.imagen" style="max-width: 80px;"></td>
+                <td>@item1.Producto.nombre</td>
+                <td>@item1.Producto.precio</td>
+                <td>@item1.Cantidad</td>
+                <td>@(item1.Producto.precio * item1.Cantidad)</td>
+            </tr>
+        };
+    </table>
+    <h2>
+        @{
+            List<item> cart = (List<item>)Session["cart"];
+            var total = cart.Sum(item => item.Producto.precio * item.Cantidad);
+        }
+        @total
+    </h2>
+    <h3>@direccion @d</h3>
+    <h3>@fechaC @fO</h3>
+    <h3>@fechaE @fE</h3>
+    <br>
+    <a href="@Url.Action("Pagar", "Pago", new { tipoPago="T"})">
+        <img src="~/Content/img/tarjetas.png" style="max-width: 150px">
+        <br>
+        <h4 style="color:black">@tarj @nTarj</h4>
+    </a>
+    
+</div>

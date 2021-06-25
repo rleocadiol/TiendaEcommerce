@@ -14,8 +14,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/1669efdec3.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+<body style="background-color:rgb(67, 110, 113)">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:rgb(67, 110, 113)">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -23,16 +23,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nombre de aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Utensils Mania", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                     <li>
                         @using (Html.BeginForm("BuscaProd", "catalogo", FormMethod.Post, new { @class = "form-inline" }))
                         {
+                            <br />
                             <input class="form-control mr-sm-2" type="text" id="nomBuscar" name="nomBuscar" placeholder="Nombre producto"/>
                             <button class="btn btn-success" type="submit" value="submit">Buscar</button>
                         }
