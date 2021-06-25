@@ -333,6 +333,7 @@
     <Content Include="Content\images\s4.jpg" />
     <Content Include="Content\images\v1.jpg" />
     <Content Include="Content\img11.png" />
+    <Content Include="Content\img\tarjetas.png" />
     <Content Include="Content\js\jquery-3.2.1.js" />
     <Content Include="Content\js\jquery.js" />
     <Content Include="Content\js\jquery_slider.js" />
