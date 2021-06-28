@@ -714,3 +714,4 @@ C:\Users\kevin\Source\Repos\rleocadiol\TiendaEcommerce\TiendaProyecto\bin\es\Mic
 C:\Users\kevin\Source\Repos\rleocadiol\TiendaEcommerce\TiendaProyecto\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
 C:\Users\kevin\Source\Repos\rleocadiol\TiendaEcommerce\TiendaProyecto\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
 C:\Users\kevin\Source\Repos\rleocadiol\TiendaEcommerce\TiendaProyecto\obj\Debug\TiendaProyecto.csproj.CopyComplete
+C:\Users\kevin\Source\Repos\rleocadiol\TiendaEcommerce\TiendaProyecto\obj\Debug\TiendaProyecto.csprojAssemblyReference.cache

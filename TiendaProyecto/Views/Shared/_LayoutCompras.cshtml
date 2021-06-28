@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="~/Content/estilos.css" rel="stylesheet" />
@@ -9,9 +9,89 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+
+    <style>
+        .dropbtn {
+            background-color: #808080;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #808080
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #00ffff;
+        }
+    </style>
+
 </head>
 <body style="background-color:skyblue">
+
     <div align="center"><img src="~/Content/logo.jpg"></div>
+
+   
+
+    <div class="dropdown">
+        <button class="dropbtn">Categorías</button>
+        <div class="dropdown-content">
+            <li>@Html.ActionLink("Agregar", "Create", "categorias", null, new { id = "add" })</li>
+            <li>@Html.ActionLink("Ver Todas", "Index", "categorias", null, new { id = "list" })</li>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Sub Categorías</button>
+        <div class="dropdown-content">
+            <li>@Html.ActionLink("Agregar", "Create", "subcategorias", null, new { id = "add" })</li>
+            <li>@Html.ActionLink("Ver Todas", "Index", "subcategorias", null, new { id = "list" })</li>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Productos</button>
+        <div class="dropdown-content">
+            <li>@Html.ActionLink("Agregar", "Create", "productos", null, new { id = "add" })</li>
+            <li>@Html.ActionLink("Ver Todas", "Index", "productos", null, new { id = "list" })</li>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Paqueteria</button>
+        <div class="dropdown-content">
+            <li>@Html.ActionLink("Agregar", "Create", "paqueteria", null, new { id = "add" })</li>
+            <li>@Html.ActionLink("Ver Todas", "Index", "paqueteria", null, new { id = "list" })</li>
+        </div>
+    </div>
+
+
+    <!--
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -57,6 +137,8 @@
             </div>
         </div>
     </div>
+        -->
+
     <div class="container body-content">
         @RenderBody()
         <hr />
