@@ -412,6 +412,7 @@
     <Content Include="Views\dirEntregas\Edit.cshtml" />
     <Content Include="Views\dirEntregas\Index.cshtml" />
     <Content Include="Views\Shared\_Layout_catalogo.cshtml" />
+    <Content Include="Views\Home\detalleProducto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
