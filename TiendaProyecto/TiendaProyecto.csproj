@@ -392,6 +392,8 @@
     <Content Include="Views\catalogo\prodCategoria.cshtml" />
     <Content Include="Views\Carro\Index.cshtml" />
     <Content Include="Views\clientes\Invalida.cshtml" />
+    <Content Include="Views\Shared\_LayoutCategorias.cshtml" />
+    <Content Include="Views\categorias\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

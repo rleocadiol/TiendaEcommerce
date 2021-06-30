@@ -11,7 +11,8 @@ namespace TiendaProyecto.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class subcategoria
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +22,9 @@ namespace TiendaProyecto.Models
         }
     
         public int Id_subcategoria { get; set; }
+        [Required, StringLength(20, MinimumLength = 3)]
         public string nombre { get; set; }
+        [Required, StringLength(60, MinimumLength = 3)]
         public string descripcion { get; set; }
         public Nullable<int> id_categoria { get; set; }
     

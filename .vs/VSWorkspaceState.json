@@ -3,8 +3,8 @@
     "",
     "\\TiendaProyecto",
     "\\TiendaProyecto\\Views",
-    "\\TiendaProyecto\\Views\\productos"
+    "\\TiendaProyecto\\Views\\categorias"
   ],
-  "SelectedNode": "\\TiendaProyecto\\Views\\productos\\Index.cshtml",
+  "SelectedNode": "\\TiendaProyecto.sln",
   "PreviewInSolutionExplorer": false
 }

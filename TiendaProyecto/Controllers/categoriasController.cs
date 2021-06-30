@@ -14,6 +14,7 @@ namespace TiendaProyecto.Controllers
     public class categoriasController : Controller
     {
         private dbutContext db = new dbutContext();
+        
 
         // GET: categorias
         public ActionResult Index()
@@ -111,9 +112,27 @@ namespace TiendaProyecto.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             categoria categoria = db.categoria.Find(id);
-            db.categoria.Remove(categoria);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (categoria == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                try
+                {
+                    db.categoria.Remove(categoria);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }catch 
+                {
+                    return RedirectToAction("Index", "subcategorias");
+                }
+               
+            }
+           
+           
+
+        
         }
 
         protected override void Dispose(bool disposing)

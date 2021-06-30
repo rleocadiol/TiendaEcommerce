@@ -58,39 +58,42 @@
 <body style="background-color:skyblue">
 
     <div align="center"><img src="~/Content/logo.jpg"></div>
+    <br />
+    <br />
+    <br />
 
-   
+    <div style="text-align:center; padding-top:50px;">
 
-    <div class="dropdown">
-        <button class="dropbtn">Categorías</button>
-        <div class="dropdown-content">
-            <li>@Html.ActionLink("Agregar", "Create", "categorias", null, new { id = "add" })</li>
-            <li>@Html.ActionLink("Ver Todas", "Index", "categorias", null, new { id = "list" })</li>
+        <div class="dropdown">
+            <button class="dropbtn">Categorías</button>
+            <div class="dropdown-content">
+                <li>@Html.ActionLink("Agregar", "Create", "categorias", null, new { id = "add" })</li>
+                <li>@Html.ActionLink("Ver Todas", "Index", "categorias", null, new { id = "list" })</li>
+            </div>
         </div>
-    </div>
-    <div class="dropdown">
-        <button class="dropbtn">Sub Categorías</button>
-        <div class="dropdown-content">
-            <li>@Html.ActionLink("Agregar", "Create", "subcategorias", null, new { id = "add" })</li>
-            <li>@Html.ActionLink("Ver Todas", "Index", "subcategorias", null, new { id = "list" })</li>
+        <div class="dropdown">
+            <button class="dropbtn">Sub Categorías</button>
+            <div class="dropdown-content">
+                <li>@Html.ActionLink("Agregar", "Create", "subcategorias", null, new { id = "add" })</li>
+                <li>@Html.ActionLink("Ver Todas", "Index", "subcategorias", null, new { id = "list" })</li>
+            </div>
         </div>
-    </div>
-    <div class="dropdown">
-        <button class="dropbtn">Productos</button>
-        <div class="dropdown-content">
-            <li>@Html.ActionLink("Agregar", "Create", "productos", null, new { id = "add" })</li>
-            <li>@Html.ActionLink("Ver Todas", "Index", "productos", null, new { id = "list" })</li>
+        <div class="dropdown">
+            <button class="dropbtn">Productos</button>
+            <div class="dropdown-content">
+                <li>@Html.ActionLink("Agregar", "Create", "productos", null, new { id = "add" })</li>
+                <li>@Html.ActionLink("Ver Todas", "Index", "productos", null, new { id = "list" })</li>
+            </div>
         </div>
-    </div>
-    <div class="dropdown">
-        <button class="dropbtn">Paqueteria</button>
-        <div class="dropdown-content">
-            <li>@Html.ActionLink("Agregar", "Create", "paqueteria", null, new { id = "add" })</li>
-            <li>@Html.ActionLink("Ver Todas", "Index", "paqueteria", null, new { id = "list" })</li>
+        <div class="dropdown">
+            <button class="dropbtn">Paqueteria</button>
+            <div class="dropdown-content">
+                <li>@Html.ActionLink("Agregar", "Create", "paqueteria", null, new { id = "add" })</li>
+                <li>@Html.ActionLink("Ver Todas", "Index", "paqueteria", null, new { id = "list" })</li>
+            </div>
         </div>
-    </div>
 
-
+    </div>
     <!--
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -107,29 +110,29 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Categorías <span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Agregar", "Create", "categorias", null, new { id = "add" })</li>
-                            <li>@Html.ActionLink("Ver Todas", "Index", "categorias", null, new { id = "list" })</li>
+                            <li> Html.ActionLink("Agregar", "Create", "categorias", null, new { id = "add" })</li>
+                            <li> Html.ActionLink("Ver Todas", "Index", "categorias", null, new { id = "list" })</li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Sub Categorías <span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Agregar", "Create", "subcategorias", null, new { id = "add" })</li>
-                            <li>@Html.ActionLink("Ver Todas", "Index", "subcategorias", null, new { id = "list" })</li>
+                            <li> Html.ActionLink("Agregar", "Create", "subcategorias", null, new { id = "add" })</li>
+                            <li> Html.ActionLink("Ver Todas", "Index", "subcategorias", null, new { id = "list" })</li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Productos <span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Agregar", "Create", "productos", null, new { id = "add" })</li>
-                            <li>@Html.ActionLink("Ver Todas", "Index", "productos", null, new { id = "list" })</li>
+                            <li> Html.ActionLink("Agregar", "Create", "productos", null, new { id = "add" })</li>
+                            <li> Html.ActionLink("Ver Todas", "Index", "productos", null, new { id = "list" })</li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Paquetería<span class="caret"></span> </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Agregar", "Create", "paqueteria", null, new { id = "add" })</li>
-                            <li>@Html.ActionLink("Ver Todas", "Index", "paqueteria", null, new { id = "list" })</li>
+                            <li> Html.ActionLink("Agregar", "Create", "paqueteria", null, new { id = "add" })</li>
+                            <li> Html.ActionLink("Ver Todas", "Index", "paqueteria", null, new { id = "list" })</li>
                         </ul>
                     </li>
                 </ul>
