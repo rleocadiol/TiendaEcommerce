@@ -11,7 +11,8 @@ namespace TiendaProyecto.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class paqueteria
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,11 +23,17 @@ namespace TiendaProyecto.Models
     
         public int Id_paqueteria { get; set; }
         public string nombre { get; set; }
+        [Required, StringLength(13, MinimumLength = 13, ErrorMessage = "Ingresa tu rfc a 13 digitos.")]
         public string rfc { get; set; }
+        [Required, StringLength(10, MinimumLength = 10, ErrorMessage = "Ingresa tu numero a 10 digitos.")]
         public string tel { get; set; }
+        [Required(ErrorMessage = "Ingresa la dirección web")]
         public string web { get; set; }
+        [Required (ErrorMessage = "Ingresa tu direccion")]
         public string direccion { get; set; }
+        [Required(ErrorMessage = "Ingresa tu nombre de contacto")]
         public string contacto { get; set; }
+        [Required, StringLength(10, MinimumLength =10, ErrorMessage = "Ingresa tu numero a 10 digitos.")]
         public string tel_contacto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

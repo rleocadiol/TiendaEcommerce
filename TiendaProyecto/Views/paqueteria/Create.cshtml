@@ -25,7 +25,7 @@
         <br />
         <br />
         <div class="col-md-10">
-            @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control", placeholder = "Ingresa tu nombre " } })
             @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -35,7 +35,7 @@
         <br />
         <br />
         <div class="col-md-10">
-            @Html.EditorFor(model => model.rfc, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.rfc, new { htmlAttributes = new { @class = "form-control", placeholder = "Ingresa tu rfc a 13 digitos" } })
             @Html.ValidationMessageFor(model => model.rfc, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -45,7 +45,7 @@
         <br />
         <br />
         <div class="col-md-10">
-            @Html.EditorFor(model => model.tel, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.tel, new { htmlAttributes = new { @class = "form-control", placeholder = "Ingresa tu telefono a 10 digitos" } })
             @Html.ValidationMessageFor(model => model.tel, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -61,7 +61,7 @@
     </div>
 
     <div class="form-group">
-        <p class="control-label col-md-2">Teléfono de contacto</p>
+        <p class="control-label col-md-2">Dirección</p>
         <br />
         <br />
         <div class="col-md-10">

@@ -11,13 +11,18 @@ namespace TiendaProyecto.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class dirEntrega
     {
         public int Id_dirEntrega { get; set; }
+        [Required(ErrorMessage = "Ingresa tu calle")]
         public string calle { get; set; }
+        [Required(ErrorMessage = "Ingresa tu colonia")]
         public string colonia { get; set; }
+        [Required(ErrorMessage = "Ingresa tu estado")]
         public string estado { get; set; }
+        [Required, StringLength(10, MinimumLength = 10, ErrorMessage = "Ingresa tu número a 10 digitos.")]
         public string tel { get; set; }
         public Nullable<int> id_cliente { get; set; }
     
